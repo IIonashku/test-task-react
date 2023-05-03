@@ -1,29 +1,25 @@
 // Absolute imports
-import React, { useContext, useState } from 'react';
+import React, { type Dispatch, type SetStateAction, useContext, useState } from 'react';
 
 // Components
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Portal from './Portal';
+import Portal from '../../containers/Portal';
 import Select from '../Select';
 
 // Context
-import { ModalContext } from './ModalContextProvider';
+import { Context } from '../../containers/ContextProvider';
 
 // Helpers
-import dateFormatter from '../../helpers/dateFormatter';
-import { getDataByMonth } from '../../helpers/getDataByMonth';
+import { getDataByMonth, dateFormatter } from '../../helpers/common';
 
 // Data
 import timeSheets from '../../timesheets.json';
 
-// Types
-import { type Employee, type ITimeSheet } from '../types';
-
-interface IModalContext {
+interface IContext {
   isOpen: boolean;
-  setOpen: (value: boolean) => void;
+  setOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 interface IModalProps {
@@ -31,7 +27,7 @@ interface IModalProps {
 }
 
 const ModalTimeSheets: React.FC<IModalProps> = ({ selectedEmployee }) => {
-  const { setOpen, isOpen } = useContext<IModalContext>(ModalContext);
+  const { setOpen, isOpen } = useContext<IContext>(Context);
   const [selectedMonth, setSelectedMonth] = useState<string>('all');
 
   const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {

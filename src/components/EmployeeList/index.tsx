@@ -3,20 +3,17 @@ import React, { useContext, useState } from 'react';
 
 // Components
 import Table from 'react-bootstrap/Table';
-import ModalTimeSheets from '../Modal/ModalTimeSheets';
+import ModalTimeSheets from '../Modal';
 
 // Context
-import { ModalContext } from '../Modal/ModalContextProvider';
+import { Context } from '../../containers/ContextProvider';
 
 // Data
 import users from '../../users.json';
 
-// Types
-import { type Employee } from '../types';
-
 const EmployeeList: React.FC = () => {
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
-  const { isOpen, setOpen } = useContext(ModalContext);
+  const { isOpen, setOpen } = useContext(Context);
 
   const handleItemClick = (user: Employee) => {
     setSelectedEmployee(user);

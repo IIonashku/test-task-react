@@ -3,7 +3,7 @@ import React from 'react';
 
 // Components
 import EmployeeList from './components/EmployeeList';
-import ModalContextProvider from './components/Modal/ModalContextProvider';
+import ModalContextProvider from './containers/ContextProvider';
 
 const App: React.FC = () => (
   <div className="App">

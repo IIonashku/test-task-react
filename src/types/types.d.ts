@@ -1,4 +1,4 @@
-export interface ITimeSheet {
+interface ITimeSheet {
   id: string;
   userId: string;
   companyId: string;
@@ -13,7 +13,7 @@ export interface ITimeSheet {
   approvalPersonId: string | null;
 }
 
-export interface Employee {
+interface Employee {
   id: string;
   firstName: string;
   lastName: string;
